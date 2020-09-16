@@ -145,12 +145,20 @@ def roi_bbox(input_image: np.array):
  return input_image
 
 def alea(v:int):
- return randint(0,v)  
+ return randint(1,v)  
     
 
 def random_array_filling(table:np.array,k:int):
- for i in range(k + 1):
-  table[alea(len(table) - 1),alea(len(table[0]) - 1)] = alea(100)     
+ malist = []
+ for i in range(k):
+  x = alea(len(table) - 1)
+  y = alea(len(table[0]) - 1)
+  malist.insert(0,"[x,y]")  
+  print(malist)
+  if "[x,y]" not in malist:
+   table[x,y] = alea(100) 
+ position = np.argwhere(table)
+ print(len(position))    
  return table
   
 
