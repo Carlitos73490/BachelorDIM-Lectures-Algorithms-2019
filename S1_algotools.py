@@ -120,21 +120,26 @@ def roi_bbox(input_image: np.array):
 
  print (CHG,CHD,CBG,CBD)
  
- bounding_box = 0
+ '''bounding_box = 0
  if CHG[0] < CBD[0]:
   bounding_box = str(CHG) + " " + str(CBD)
   print(bounding_box)
  if CHG[0] > CBD[0]: 
   bounding_box = str(CHD) + " " + str(CBG)
   print(bounding_box)
+ ''' 
   
-  '''
+ if CHG[1] < CBD[1]:
+      newCHD = CHG[0],CBD[1]
+      newCBG = CBG[0],CHG[1]
+      
+ print(CHG,newCHD,newCBG,CBD)     
+ '''
       x1>x   x1 = 0
       y<y1   y1 =y
       x2 < x x2 = x
       y2 < y y2=y
   '''
-    
  return input_image
  
   
