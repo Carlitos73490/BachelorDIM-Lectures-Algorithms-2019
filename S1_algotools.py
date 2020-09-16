@@ -153,10 +153,13 @@ def random_array_filling(table:np.array,k:int):
  for i in range(k):
   x = alea(len(table) - 1)
   y = alea(len(table[0]) - 1)
-  malist.insert(0,"[x,y]")  
   print(malist)
-  if "[x,y]" not in malist:
-   table[x,y] = alea(100) 
+  if (x,y) in malist:
+      print("doublon")
+  else:
+    table[x,y] = alea(100) 
+  malist.insert(0,(x,y))  
+
  position = np.argwhere(table)
  print(len(position))    
  return table
