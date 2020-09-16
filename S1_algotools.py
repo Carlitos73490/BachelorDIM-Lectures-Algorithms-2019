@@ -1,3 +1,5 @@
+from random import *
+import numpy as np
 '''
 a=1
 b='e'+a
@@ -59,7 +61,7 @@ def reverse_table(table:list):
  return table
 
 '''//////////////////////////////////////////////////'''
-import numpy as np
+
 def roi_bbox(input_image: np.array):
  '''
  This function return the reverese form of a table given in parameters
@@ -141,18 +143,28 @@ def roi_bbox(input_image: np.array):
       y2 < y y2=y
   '''
  return input_image
- 
+
+def alea(v:int):
+ return randint(0,v)  
+    
+
+def random_array_filling(table:np.array,k:int):
+ for i in range(k + 1):
+  table[alea(len(table) - 1),alea(len(table[0]) - 1)] = alea(100)     
+ return table
   
 
 maTable = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 '''print(reverse_table(maTable))'''
 '''print(max_value(maTable))'''
 '''print(average_above_zero(maTable))'''
+'''
 H = 12
 W = 10
 monImage = np.zeros((H,W))
 monImage[8:10,7:9] = np.ones((2,2))
 monImage[2:4,3:5] = np.ones((2,2))*2
-
-print(roi_bbox(monImage))
+print(roi_bbox(monImage))'''
+maMatriceChar = np.zeros((10,10))
+print(random_array_filling(maMatriceChar,10))
 
